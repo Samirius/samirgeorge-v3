@@ -1,0 +1,263 @@
+---
+import Navbar from '../components/Navbar';
+import { LanguageProvider } from '../components/LanguageContext';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  ogType?: string;
+  canonicalUrl?: string;
+  lang?: string;
+  dir?: string;
+}
+
+const {
+  title = 'Samir George — Technical Product Builder',
+  description = 'Samir George is a technical product builder who forges ideas into craft. Engineering, design, and product thinking — shaped with intention.',
+  ogImage = '/og-default.png',
+  ogType = 'website',
+  canonicalUrl = Astro.url.href,
+  lang = 'en',
+  dir = 'ltr',
+} = Astro.props;
+
+const siteName = 'Samir George';
+const twitterHandle = '@samiremile';
+---
+
+<!doctype html>
+<html lang={lang} dir={dir} class="scroll-smooth">
+  <head>
+    <!-- Core meta -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Samir George" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content={twitterHandle} />
+    <meta name="twitter:creator" content={twitterHandle} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Google Fonts — Space Grotesk + Inter + Noto Sans Arabic + JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+Arabic:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Theme color -->
+    <meta name="theme-color" content="#09090B" />
+    <meta name="color-scheme" content="dark" />
+  </head>
+
+  <body class="bg-background text-text-primary font-sans antialiased">
+    <!-- Skip to content — accessibility -->
+    <a href="#main-content" class="skip-link">
+      Skip to content
+    </a>
+
+    <!-- Navigation -->
+    <Navbar client:load />
+
+    <!-- Main content -->
+    <main id="main-content" class="min-h-screen">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-border">
+      <div class="max-w-6xl mx-auto px-6 py-16 md:py-20">
+        <!-- Top row -->
+        <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-10">
+          <!-- Left: brand + tagline -->
+          <div class="max-w-sm">
+            <a href="/" class="font-display text-xl font-bold text-primary tracking-tight">
+              SG
+            </a>
+            <p class="mt-3 text-sm text-text-secondary leading-relaxed" id="footer-tagline">
+              Technical Product Builder. Forging ideas into craft — with engineering precision and editorial intent.
+            </p>
+            <p class="mt-3 text-sm text-text-secondary leading-relaxed font-arabic hidden" id="footer-tagline-ar" dir="rtl" lang="ar">
+              باني حلول تقنية. صياغة الأفكار بحرفية — بدقة هندسية ونية تحريرية.
+            </p>
+          </div>
+
+          <!-- Right: links grid -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-x-12 gap-y-8 text-sm">
+            <!-- Pages -->
+            <div>
+              <span class="label block mb-3">Pages</span>
+              <nav class="flex flex-col gap-2">
+                <a href="/work" class="text-text-secondary hover:text-primary transition-colors duration-200">Work</a>
+                <a href="/about" class="text-text-secondary hover:text-primary transition-colors duration-200">About</a>
+                <a href="/writing" class="text-text-secondary hover:text-primary transition-colors duration-200">Writing</a>
+                <a href="/now" class="text-text-secondary hover:text-primary transition-colors duration-200">Now</a>
+                <a href="/contact" class="text-text-secondary hover:text-primary transition-colors duration-200">Contact</a>
+              </nav>
+            </div>
+
+            <!-- Social -->
+            <div>
+              <span class="label block mb-3">Connect</span>
+              <nav class="flex flex-col gap-2">
+                <a href="https://linkedin.com/in/samirgeorge" target="_blank" rel="noopener noreferrer"
+                   class="text-text-secondary hover:text-primary transition-colors duration-200">
+                  LinkedIn
+                </a>
+                <a href="https://github.com/samiremile" target="_blank" rel="noopener noreferrer"
+                   class="text-text-secondary hover:text-primary transition-colors duration-200">
+                  GitHub
+                </a>
+                <a href="https://x.com/samiremile" target="_blank" rel="noopener noreferrer"
+                   class="text-text-secondary hover:text-primary transition-colors duration-200">
+                  X
+                </a>
+                <a href="mailto:samir.george.emile@gmail.com"
+                   class="text-text-secondary hover:text-primary transition-colors duration-200">
+                  Email
+                </a>
+              </nav>
+            </div>
+
+            <!-- Colophon -->
+            <div class="col-span-2 sm:col-span-1">
+              <span class="label block mb-3">Colophon</span>
+              <p class="text-text-secondary leading-relaxed" id="footer-colophon">
+                Built with Astro & React.<br />
+                Typeset in Space Grotesk & Inter.
+              </p>
+              <p class="text-text-secondary leading-relaxed font-arabic hidden" id="footer-colophon-ar" dir="rtl" lang="ar">
+                مبني بـ Astro و React.<br />
+                خطوط Space Grotesk و Inter.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="mt-14 pt-6 border-t border-border flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <p class="text-xs text-text-secondary" id="footer-copyright">
+            &copy; {new Date().getFullYear()} Samir George. All rights reserved.
+          </p>
+          <p class="text-xs text-text-secondary" id="footer-forged">
+            Forged with <span class="text-primary">سبك</span>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll-reveal IntersectionObserver -->
+    <script>
+      function initScrollReveal() {
+        const revealElements = document.querySelectorAll('.reveal');
+        if (!revealElements.length) return;
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                // Once revealed, stop observing
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold: 0.08,
+            rootMargin: '0px 0px -40px 0px',
+          }
+        );
+
+        revealElements.forEach((el) => observer.observe(el));
+      }
+
+      // Run on initial load
+      initScrollReveal();
+
+      // Re-run after Astro page transitions (View Transitions)
+      document.addEventListener('astro:page-load', initScrollReveal);
+      document.addEventListener('astro:after-swap', initScrollReveal);
+    </script>
+
+    <!-- Footer i18n observer: swaps footer text based on localStorage language -->
+    <script>
+      function syncFooterLang() {
+        const lang = localStorage.getItem('sg-lang') || 'en';
+        const tagline = document.getElementById('footer-tagline');
+        const taglineAr = document.getElementById('footer-tagline-ar');
+        const colophon = document.getElementById('footer-colophon');
+        const colophonAr = document.getElementById('footer-colophon-ar');
+        const copyright = document.getElementById('footer-copyright');
+        const forged = document.getElementById('footer-forged');
+
+        if (tagline && taglineAr) {
+          if (lang === 'ar') {
+            tagline.classList.add('hidden');
+            taglineAr.classList.remove('hidden');
+          } else {
+            tagline.classList.remove('hidden');
+            taglineAr.classList.add('hidden');
+          }
+        }
+        if (colophon && colophonAr) {
+          if (lang === 'ar') {
+            colophon.classList.add('hidden');
+            colophonAr.classList.remove('hidden');
+          } else {
+            colophon.classList.remove('hidden');
+            colophonAr.classList.add('hidden');
+          }
+        }
+        if (copyright) {
+          copyright.textContent = lang === 'ar'
+            ? `© ${new Date().getFullYear()} سمير جورج. جميع الحقوق محفوظة.`
+            : `© ${new Date().getFullYear()} Samir George. All rights reserved.`;
+        }
+        if (forged) {
+          forged.textContent = lang === 'ar'
+            ? 'صُنع بـ سبك'
+            : 'Forged with سبك';
+        }
+      }
+
+      // Run on load
+      syncFooterLang();
+
+      // Poll for changes (simple approach since footer is static Astro HTML)
+      let lastLang = localStorage.getItem('sg-lang') || 'en';
+      setInterval(() => {
+        const current = localStorage.getItem('sg-lang') || 'en';
+        if (current !== lastLang) {
+          lastLang = current;
+          syncFooterLang();
+        }
+      }, 500);
+
+      document.addEventListener('astro:page-load', syncFooterLang);
+    </script>
+  </body>
+</html>
