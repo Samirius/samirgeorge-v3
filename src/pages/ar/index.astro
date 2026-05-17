@@ -143,7 +143,7 @@ function formatDate(date: Date) {
       <h2 class="text-sm font-medium text-secondary uppercase tracking-widest mb-8">كتابات</h2>
       <div class="space-y-1">
         {latestPosts.map((post) => (
-          <a href={`/ar/writing/${post.id}/`} class="group hover:bg-surfaceHover rounded-lg p-4 -mx-4 transition-all cursor-pointer block">
+          <a href={`/writing/${post.id}/`} class="group hover:bg-surfaceHover rounded-lg p-4 -mx-4 transition-all cursor-pointer block">
             <div class="flex items-center justify-between gap-4">
               <span class="text-text group-hover:text-accent transition-colors">{post.data.title}</span>
               <span class="text-sm text-secondary shrink-0">{formatDate(post.data.pubDate)}</span>
@@ -151,7 +151,7 @@ function formatDate(date: Date) {
           </a>
         ))}
       </div>
-      <a href="/ar/writing" class="inline-block mt-4 text-sm text-secondary hover:text-text transition-colors">← اقرأ المزيد</a>
+      <a href="/writing" class="inline-block mt-4 text-sm text-secondary hover:text-text transition-colors">← اقرأ المزيد</a>
     </div>
   </section>
 
