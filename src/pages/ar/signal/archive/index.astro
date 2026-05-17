@@ -1,0 +1,25 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import briefData from '../../../../data/news/today.json';
+import archive15 from '../../../../data/news/archive/2026-05-15.json';
+import archive16 from '../../../../data/news/archive/2026-05-16.json';
+const archives = [briefData, archive15, archive16].sort((a, b) => b.date.localeCompare(a.date));
+---
+
+<Base title="أرشيف إشارة" lang="ar">
+  <div class="max-w-section mx-auto px-6 py-16">
+    <h1 class="text-3xl md:text-4xl font-bold text-text mb-4">أرشيف إشارة</h1>
+    <p class="text-secondary mb-12" dir="rtl">ملخصات سابقة مرتبة بالتاريخ.</p>
+    <div class="space-y-4">
+      {archives.map((brief: any) => (
+        <a href={`/ar/signal/archive/${brief.date}/`} class="group block bg-surface border border-border rounded-xl p-6 hover:border-accent/20 hover:bg-surfaceHover transition-all">
+          <div class="flex items-center justify-between">
+            <span class="text-text font-semibold group-hover:text-accent transition-colors">{brief.dateFormatted_ar}</span>
+            <span class="text-sm text-secondary">{brief.items.length} أخبار</span>
+          </div>
+          <p class="text-sm text-secondary mt-2" dir="rtl">{brief.headline_ar}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</Base>

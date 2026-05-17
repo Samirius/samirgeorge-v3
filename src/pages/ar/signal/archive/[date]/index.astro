@@ -1,0 +1,37 @@
+---
+import Base from '../../../../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const dates = ['2026-05-15', '2026-05-16'];
+  return dates.map(d => ({ params: { date: d } }));
+}
+
+const date = Astro.params.date!;
+let brief: any;
+try {
+  const archiveModule = await import(`../../../../../data/news/archive/${date}.json`);
+  brief = archiveModule.default;
+} catch {
+  const todayModule = await import('../../../../../data/news/today.json');
+  brief = todayModule.default;
+}
+---
+
+<Base title={`إشارة — ${brief.dateFormatted_ar}`} lang="ar">
+  <article class="max-w-section mx-auto px-6 py-16">
+    <a href="/ar/signal/archive" class="text-sm text-secondary hover:text-accent transition-colors mb-8 inline-block">← الأرشيف</a>
+    <h1 class="text-3xl font-bold text-text mb-4">{brief.dateFormatted_ar}</h1>
+    <div class="space-y-6 mt-12">
+      {brief.items.map((item: any) => (
+        <div class="bg-surface border border-border rounded-xl p-6">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-xs font-medium px-2 py-1 rounded bg-accent/10 text-accent">{item.category}</span>
+            {item.source && <span class="text-xs text-secondary">{item.source}</span>}
+          </div>
+          <h3 class="text-lg font-semibold text-text mb-2" dir="rtl">{item.title_ar}</h3>
+          <p class="text-secondary leading-relaxed" dir="rtl">{item.summary_ar}</p>
+        </div>
+      ))}
+    </div>
+  </article>
+</Base>

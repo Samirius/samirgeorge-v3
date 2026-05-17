@@ -1,0 +1,89 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Work">
+  <div class="max-w-6xl mx-auto px-6 py-24">
+    <div class="flex items-center gap-3 mb-4">
+      <span class="text-accent font-mono text-sm">01</span>
+      <div class="h-px w-12 bg-accent/30"></div>
+      <span class="text-sm text-secondary uppercase tracking-widest">Work</span>
+    </div>
+
+    <h1 class="text-3xl md:text-5xl font-bold text-text mb-6 leading-tight">
+      Things I've built<span class="text-accent">.</span>
+    </h1>
+    <p class="text-secondary text-lg mb-16 max-w-2xl">
+      Not side projects — real products with real users. From my own SaaS to client solutions.
+    </p>
+
+    <!-- Bento Grid -->
+    <div class="grid md:grid-cols-2 gap-4 mb-12">
+      <!-- Sabbk - Featured -->
+      <div class="md:row-span-2 group relative rounded-2xl border border-white/5 bg-white/[0.02] p-8 hover:border-accent/20 transition-all duration-300 overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-[80px] group-hover:bg-accent/10 transition-all"></div>
+        <div class="relative z-10">
+          <span class="px-3 py-1 text-xs font-medium bg-accent/10 text-accent rounded-full border border-accent/20 mb-6 inline-block">Studio</span>
+          <h3 class="text-2xl md:text-3xl font-bold text-text mb-4 group-hover:text-accent transition-colors">Sabbk سبك</h3>
+          <p class="text-secondary leading-relaxed mb-8">My product studio. AI, software, and consultation for businesses across the Gulf. Forging solutions that compound.</p>
+          <a href="https://sabbk.com" target="_blank" rel="noopener noreferrer" class="text-accent text-sm font-medium hover:underline">sabbk.com →</a>
+          <div class="flex flex-wrap gap-2 mt-6">
+            <span class="px-3 py-1 text-xs bg-white/5 text-secondary rounded-md">AI</span>
+            <span class="px-3 py-1 text-xs bg-white/5 text-secondary rounded-md">Software</span>
+            <span class="px-3 py-1 text-xs bg-white/5 text-secondary rounded-md">Consultation</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- myHR -->
+      <a href="https://hr.sabbk.com" target="_blank" rel="noopener noreferrer" class="group relative rounded-2xl border border-white/5 bg-white/[0.02] p-6 hover:border-accent/20 transition-all duration-300">
+        <span class="px-3 py-1 text-xs font-medium bg-accent/10 text-accent rounded-full border border-accent/20 mb-4 inline-block">Product</span>
+        <h3 class="text-xl font-bold text-text mb-2 group-hover:text-accent transition-colors">myHR</h3>
+        <p class="text-secondary text-sm leading-relaxed mb-4">Modern HR & Payroll system for MENA businesses. Smart attendance, automated payroll, leave management. Arabic-first.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2 py-0.5 text-xs bg-white/5 text-secondary rounded-md">Laravel</span>
+          <span class="px-2 py-0.5 text-xs bg-white/5 text-secondary rounded-md">Vue</span>
+          <span class="px-2 py-0.5 text-xs bg-white/5 text-secondary rounded-md">HR Tech</span>
+        </div>
+      </a>
+
+      <!-- Sanadi -->
+      <div class="group relative rounded-2xl border border-white/5 bg-white/[0.02] p-6 hover:border-accent/20 transition-all duration-300">
+        <span class="px-3 py-1 text-xs font-medium bg-accent/10 text-accent rounded-full border border-accent/20 mb-4 inline-block">Shipped</span>
+        <h3 class="text-xl font-bold text-text mb-2 group-hover:text-accent transition-colors">Sanadi سندي</h3>
+        <p class="text-secondary text-sm leading-relaxed mb-4">Medication reminder app built for families. Keep your loved ones on track and check on them from your phone.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-2 py-0.5 text-xs bg-white/5 text-secondary rounded-md">Health Tech</span>
+          <span class="px-2 py-0.5 text-xs bg-white/5 text-secondary rounded-md">Mobile</span>
+          <span class="px-2 py-0.5 text-xs bg-white/5 text-secondary rounded-md">Family</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Akila full width -->
+    <div class="group relative rounded-2xl border border-white/5 bg-white/[0.02] p-6 hover:border-accent/20 transition-all duration-300 mb-16">
+      <div class="flex items-center justify-between mb-4">
+        <span class="px-3 py-1 text-xs font-medium bg-white/5 text-secondary rounded-full border border-white/10">Building</span>
+      </div>
+      <h3 class="text-xl font-bold text-text mb-2 group-hover:text-accent transition-colors">Akila أكيلة</h3>
+      <p class="text-secondary text-sm leading-relaxed mb-4 max-w-xl">Group food ordering for teams. Browse menus together, split bills, manage group orders. Built for offices.</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="px-2 py-0.5 text-xs bg-white/5 text-secondary rounded-md">Food Tech</span>
+        <span class="px-2 py-0.5 text-xs bg-white/5 text-secondary rounded-md">Teams</span>
+      </div>
+    </div>
+
+    <!-- Community -->
+    <h3 class="text-sm text-secondary uppercase tracking-widest mb-8">Community</h3>
+    <div class="grid md:grid-cols-2 gap-4">
+      <div class="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:border-accent/20 transition-all duration-300">
+        <h4 class="text-text font-semibold mb-2 group-hover:text-accent transition-colors">OpenClaw بالعربي</h4>
+        <p class="text-secondary text-sm">9,600+ Arab builders learning AI agents and systems thinking. Making AI practical and accessible in Arabic.</p>
+      </div>
+      <div class="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:border-accent/20 transition-all duration-300">
+        <h4 class="text-text font-semibold mb-2 group-hover:text-accent transition-colors">Freelancers Egypt</h4>
+        <p class="text-secondary text-sm">Open community of 9,600+ freelancers. Sharing knowledge, resources, and real opportunities for Arab builders.</p>
+      </div>
+    </div>
+  </div>
+</Base>

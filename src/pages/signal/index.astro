@@ -1,0 +1,92 @@
+---
+import Base from '../../layouts/Base.astro';
+
+export interface NewsItem {
+  title_en: string;
+  title_ar: string;
+  summary_en: string;
+  summary_ar: string;
+  category: string;
+  source?: string;
+  url?: string;
+}
+
+export interface DailyBrief {
+  date: string;
+  dateFormatted_en: string;
+  dateFormatted_ar: string;
+  headline_en: string;
+  headline_ar: string;
+  items: NewsItem[];
+  aiSummary_en: string;
+  aiSummary_ar: string;
+}
+
+import briefData from '../../data/news/today.json';
+const brief: DailyBrief = briefData;
+---
+
+<Base
+  title="Signal — Daily AI Brief"
+  description="AI-curated daily brief. No hype, no noise — just what matters."
+>
+  <article class="max-w-section mx-auto px-6 py-16">
+    <header class="mb-16 reveal">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="text-3xl">📡</span>
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tight">Signal</h1>
+      </div>
+      <p class="text-xl text-secondary max-w-2xl">No hype. No noise. Just what matters.</p>
+      <div class="mt-6 flex items-center gap-4 text-sm text-secondary">
+        <time datetime={brief.date}>{brief.dateFormatted_en}</time>
+        <span>•</span>
+        <span class="px-2 py-1 rounded bg-accent/10 text-accent text-xs font-medium">AI Curated</span>
+        <span>•</span>
+        <a href="/ar/signal" class="text-accent hover:underline">اقرأ بالعربي</a>
+        <span>•</span>
+        <a href="/signal/archive" class="text-secondary hover:text-accent transition-colors">Archive →</a>
+      </div>
+    </header>
+
+    <section class="mb-16 reveal">
+      <div class="bg-surface rounded-2xl p-8 border border-border">
+        <h2 class="text-sm font-medium text-accent uppercase tracking-wider mb-4">Today's Snapshot</h2>
+        <p class="text-lg leading-relaxed text-text">{brief.aiSummary_en}</p>
+      </div>
+    </section>
+
+    {brief.headline_en && (
+      <section class="mb-16 reveal">
+        <div class="border-l-4 border-accent pl-6">
+          <h2 class="text-2xl md:text-3xl font-bold text-text mb-2">{brief.headline_en}</h2>
+        </div>
+      </section>
+    )}
+
+    <section class="space-y-6 reveal">
+      {brief.items.map((item: NewsItem, i: number) => (
+        <a href={`/signal/archive/${brief.date}/${i + 1}/`} class="group block bg-surface hover:bg-surfaceHover rounded-xl p-6 border border-border hover:border-accent/20 transition-all">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-xs font-medium px-2 py-1 rounded bg-accent/10 text-accent">{item.category}</span>
+            {item.source && <span class="text-xs text-secondary">{item.source}</span>}
+          </div>
+          <h3 class="text-xl font-semibold text-text mb-2 group-hover:text-accent transition-colors">{item.title_en}</h3>
+          <p class="text-secondary leading-relaxed">{item.summary_en}</p>
+          <span class="mt-3 inline-block text-sm text-accent">Read more →</span>
+        </a>
+      ))}
+    </section>
+
+    <section class="mt-20 reveal">
+      <div class="max-w-2xl">
+        <h2 class="text-2xl font-bold text-text mb-4">About Signal</h2>
+        <p class="text-secondary leading-relaxed">
+          Every morning, AI scans hundreds of sources across tech, business, and the Middle East — then distills what actually matters into a no-nonsense brief. No clickbait. No recycled press releases. No hype cycles.
+        </p>
+        <p class="text-secondary leading-relaxed mt-4">
+          Curated by <a href="/" class="text-accent hover:underline">Samir George</a>. Updated daily.
+        </p>
+      </div>
+    </section>
+  </article>
+</Base>

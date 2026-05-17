@@ -1,0 +1,191 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import services from '../../content/services.json';
+import briefData from '../../data/news/today.json';
+
+const allPosts = await getCollection('blog');
+const latestPosts = allPosts.filter(p => !p.data.draft).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
+const brief = briefData;
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString('ar-EG', { year: 'numeric', month: 'short', day: 'numeric' });
+}
+---
+
+<Base title="سمير جورج" lang="ar">
+  <!-- Hero -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[120px]"></div>
+      <div class="absolute top-1/3 left-1/3 w-[300px] h-[300px] bg-accent/3 rounded-full blur-[80px]"></div>
+    </div>
+    <div class="absolute inset-0 opacity-[0.03]" style={`background-image: linear-gradient(rgba(16,185,129,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(16,185,129,0.3) 1px, transparent 1px); background-size: 60px 60px;`}></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto text-center px-6">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent/20 bg-accent/5 mb-8">
+        <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
+        <span class="text-sm text-accent font-medium">مبني في القاهرة، مصر</span>
+      </div>
+      <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-text leading-[1.05] tracking-tight mb-6" dir="rtl">
+        أبني أشياء<br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accentHover">تتراكم.</span>
+      </h1>
+      <p class="text-lg md:text-xl text-secondary max-w-2xl mx-auto mb-10 leading-relaxed" dir="rtl">
+        سمير جورج — باني منتجات تقني. أحوّل الأفكار إلى منتجات منظّمة وقابلة للتوسع.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="/ar/work" class="px-8 py-3.5 bg-accent hover:bg-accentHover text-bg font-semibold rounded-lg transition-all hover:shadow-lg hover:shadow-accent/20 text-sm">← طالع أعمالي</a>
+        <a href="/ar/contact" class="px-8 py-3.5 border border-white/10 text-text hover:border-accent/30 hover:text-accent rounded-lg transition-all text-sm font-medium">تواصل معي</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Client Trust Bar -->
+  <section class="py-8 px-6">
+    <div class="max-w-6xl mx-auto bg-surface border border-border rounded-lg px-6 py-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+      <span class="text-xs text-secondary uppercase tracking-widest">يثق بي</span>
+      <span class="text-sm text-secondary">عدل الأوائل · بهرزاف · توب بيز نوت · +20 متجر في السعودية، الإمارات، مصر</span>
+    </div>
+  </section>
+
+  <!-- Method -->
+  <section class="py-24 px-6 reveal">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-sm font-medium text-secondary uppercase tracking-widest mb-10">المنهجية</h2>
+      <div class="grid sm:grid-cols-3 gap-6">
+        <div class="bg-surface border border-border rounded-lg p-6 hover:border-accent/20 hover:bg-surfaceHover transition-all">
+          <span class="text-accent font-mono text-sm">01</span>
+          <h3 class="mt-3 text-lg font-semibold text-text">استمع</h3>
+          <p class="mt-2 text-sm text-secondary leading-relaxed" dir="rtl">افهم الفوضى قبل أن تصف الحل. كل نظام يبدأ بفهم كيف تعمل الأمور فعلاً.</p>
+        </div>
+        <div class="bg-surface border border-border rounded-lg p-6 hover:border-accent/20 hover:bg-surfaceHover transition-all">
+          <span class="text-accent font-mono text-sm">02</span>
+          <h3 class="mt-3 text-lg font-semibold text-text">نظّم</h3>
+          <p class="mt-2 text-sm text-secondary leading-relaxed" dir="rtl">ارسم العمليات، حدد الاختناقات، صمم أنظمة تناسب الناس اللي بتستخدمها.</p>
+        </div>
+        <div class="bg-surface border border-border rounded-lg p-6 hover:border-accent/20 hover:bg-surfaceHover transition-all">
+          <span class="text-accent font-mono text-sm">03</span>
+          <h3 class="mt-3 text-lg font-semibold text-text">ابنِ</h3>
+          <p class="mt-2 text-sm text-secondary leading-relaxed" dir="rtl">شحن بسرعة، حسّن أسرع. كل بناء فيه حلقة تغذية راجعة.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Work -->
+  <section class="py-24 px-6 reveal">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-sm font-medium text-secondary uppercase tracking-widest mb-10">عمل مميز</h2>
+      <div class="grid sm:grid-cols-3 gap-6">
+        <a href="https://hr.sabbk.com" target="_blank" rel="noopener noreferrer" class="group bg-surface border border-border rounded-lg p-6 hover:border-accent/20 hover:bg-surfaceHover transition-all">
+          <h3 class="text-text font-semibold group-hover:text-accent transition-colors">myHR</h3>
+          <p class="mt-1 text-sm text-secondary">نظام موارد بشرية ومرتبات للشركات في المنطقة</p>
+        </a>
+        <div class="group bg-surface border border-border rounded-lg p-6 hover:border-accent/20 hover:bg-surfaceHover transition-all">
+          <h3 class="text-text font-semibold group-hover:text-accent transition-colors">Sanadi سندي</h3>
+          <p class="mt-1 text-sm text-secondary">تطبيق تذكير بالأدوية للأسر</p>
+        </div>
+        <a href="https://akila.samirgeorge.com" target="_blank" rel="noopener noreferrer" class="group bg-surface border border-border rounded-lg p-6 hover:border-accent/20 hover:bg-surfaceHover transition-all">
+          <h3 class="text-text font-semibold group-hover:text-accent transition-colors">Akila أكيلة</h3>
+          <p class="mt-1 text-sm text-secondary">طلب طعام جماعي للفرق</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Signal Preview -->
+  <section class="py-24 px-6 reveal">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-accent font-mono text-sm">📡</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-text">ملخص اليوم<span class="text-accent">.</span></h2>
+      </div>
+      <p class="text-secondary mt-2 mb-10" dir="rtl">{brief.headline_ar}</p>
+      <div class="grid sm:grid-cols-3 gap-4">
+        {brief.items.slice(0, 3).map((item: any) => (
+          <div class="group bg-surface border border-border rounded-xl p-6 hover:border-accent/20 hover:bg-surfaceHover transition-all">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-xs font-medium px-2 py-1 rounded bg-accent/10 text-accent">{item.category}</span>
+              {item.source && <span class="text-xs text-secondary">{item.source}</span>}
+            </div>
+            <h3 class="text-text font-semibold text-sm leading-snug group-hover:text-accent transition-colors" dir="rtl">{item.title_ar}</h3>
+          </div>
+        ))}
+      </div>
+      <a href="/ar/signal" class="inline-block mt-6 text-sm text-accent hover:underline">← اقرأ الملخص الكامل</a>
+    </div>
+  </section>
+
+  <!-- Philosophy -->
+  <section class="py-24 px-6 reveal">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-sm font-medium text-secondary uppercase tracking-widest mb-10">فلسفة العمل</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="group relative p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:border-accent/20 transition-all duration-300">
+          <h3 class="text-xl font-bold text-text mb-4 group-hover:text-accent transition-colors" dir="rtl">تعلّم بالبناء</h3>
+          <p class="text-secondary text-sm leading-relaxed" dir="rtl">الفهم الحقيقي يجي من إنك تبني وتكسر وتصلح وتشحن. كل مشروع هو درس.</p>
+        </div>
+        <div class="group relative p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:border-accent/20 transition-all duration-300">
+          <h3 class="text-xl font-bold text-text mb-4 group-hover:text-accent transition-colors" dir="rtl">ابنِ بترتيب</h3>
+          <p class="text-secondary text-sm leading-relaxed" dir="rtl">الكود الفوضوي والأفكار الناقصة بتكبر وتعفس. كل منتج محتاج أساس نظيف.</p>
+        </div>
+        <div class="group relative p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:border-accent/20 transition-all duration-300">
+          <h3 class="text-xl font-bold text-text mb-4 group-hover:text-accent transition-colors" dir="rtl">تراكم مع الوقت</h3>
+          <p class="text-secondary text-sm leading-relaxed" dir="rtl">المجهود الصغير المستمر يغلب الدفعات الكبيرة. كل سطر كود، كل ميزة مشحونة بتتراكم.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Writing Preview -->
+  <section class="py-24 px-6 bg-surface/50 reveal">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-sm font-medium text-secondary uppercase tracking-widest mb-8">كتابات</h2>
+      <div class="space-y-1">
+        {latestPosts.map((post) => (
+          <a href={`/ar/writing/${post.id}/`} class="group hover:bg-surfaceHover rounded-lg p-4 -mx-4 transition-all cursor-pointer block">
+            <div class="flex items-center justify-between gap-4">
+              <span class="text-text group-hover:text-accent transition-colors">{post.data.title}</span>
+              <span class="text-sm text-secondary shrink-0">{formatDate(post.data.pubDate)}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+      <a href="/ar/writing" class="inline-block mt-4 text-sm text-secondary hover:text-text transition-colors">← اقرأ المزيد</a>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="py-24 px-6 reveal">
+    <div class="max-w-6xl mx-auto">
+      <div class="bg-surface rounded-xl border border-border p-8 sm:p-12">
+        <h2 class="text-2xl font-semibold text-text mb-4" dir="rtl">مش متأكد إذا محتاج برمجيات مخصصة؟</h2>
+        <p class="text-secondary leading-relaxed" dir="rtl">هديك إجابة صادقة — سواء يعني بناء شيء جديد، أو التوصية بأداة موجودة، أو إصلاح اللي عندك.</p>
+        <div class="mt-8 flex flex-wrap items-center gap-4">
+          <a href="/ar/contact" class="bg-accent text-bg px-5 py-2.5 rounded-lg font-medium hover:bg-accentHover transition-colors">← تواصل معي</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="py-24 px-6">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl md:text-5xl font-bold text-text mb-6 leading-tight" dir="rtl">نبني شيء<span class="text-accent">.</span></h2>
+      <div class="grid md:grid-cols-3 gap-4">
+        <a href="mailto:samir@sabbk.com" class="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:border-accent/20 hover:bg-accent/5 transition-all duration-300">
+          <span class="text-sm text-secondary mb-2 block">البريد</span>
+          <span class="text-text group-hover:text-accent transition-colors font-medium">samir@sabbk.com</span>
+        </a>
+        <a href="https://sabbk.com" target="_blank" rel="noopener noreferrer" class="group p-6 rounded-xl border border-white/5 bg-white/[0.02] hover:border-accent/20 hover:bg-accent/5 transition-all duration-300">
+          <span class="text-sm text-secondary mb-2 block">سبك</span>
+          <span class="text-text group-hover:text-accent transition-colors font-medium">sabbk.com</span>
+        </a>
+        <div class="group p-6 rounded-xl border border-white/5 bg-white/[0.02]">
+          <span class="text-sm text-secondary mb-2 block">الموقع</span>
+          <span class="text-text font-medium">القاهرة، مصر</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

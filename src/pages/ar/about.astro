@@ -1,0 +1,90 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base title="عني" lang="ar">
+  <article class="max-w-section mx-auto px-6 py-16">
+    <header class="mb-20 reveal">
+      <div class="flex items-center gap-5 mb-8">
+        <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-accent to-accentHover flex items-center justify-center text-bg font-bold text-2xl shrink-0">SG</div>
+        <div>
+          <h1 class="text-4xl sm:text-5xl font-bold text-text">عني</h1>
+          <p class="text-accent font-medium mt-1">باني منتجات تقني</p>
+        </div>
+      </div>
+      <p class="text-xl text-secondary leading-relaxed max-w-2xl" dir="rtl">سمير جورج — أساعد المؤسسين والشركات أحول المشاكل المعقدة لحلول واضحة ومبنية.</p>
+    </header>
+
+    <section class="mb-20 reveal">
+      <h2 class="text-2xl font-bold text-text mb-6" dir="rtl">التحول</h2>
+      <div class="space-y-4 text-secondary leading-relaxed max-w-2xl" dir="rtl">
+        <p>قضيت ٦ سنين أبني مواقع ووردبريس قبل ما أدرك حاجة مزعجة.</p>
+        <p class="text-text font-semibold">الكود مش كان المشكلة. النظام تحته هو اللي كان.</p>
+        <p>فبدأت أتحول. من "ابني اللي يُطلب" لـ "افهم اللي يُحتاج". من منفذ مهام لـ مفكر أنظمة. من مطور لباني منتجات تقني.</p>
+        <blockquote class="border-l-2 border-accent pl-4 py-2 my-6">
+          <p class="text-text italic">أصوغ الوضوح من الفوضى. مش شعار — ده أسلوبي.</p>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="mb-20 reveal">
+      <h2 class="text-2xl font-bold text-text mb-10" dir="rtl">الخلفية</h2>
+      <div class="space-y-0 max-w-2xl">
+        {[
+          { year: '٢٠٢٦', title: 'باني منتجات تقني', desc: 'بني myHR، سندي، أكيلة، سبك. أصوغ أدوات للبُناة العرب.' },
+          { year: '٢٠٢٥', title: 'باني منتجات تقني @ أندرسن مصر', desc: 'قيادة مشاريع ووردبريس ووكومرس لعملاء الشركات.' },
+          { year: '٢٠٢٤', title: 'بناء المجتمع', desc: 'نمو مستقلين مصر لأكثر من ٩,٠٠٠ عضو. البناء علناً.' },
+          { year: '٢٠٢٠', title: 'أنظمة ومنتجات', desc: 'بناء أكثر من ٢٠ موقع ونظام لعملاء في الشرق الأوسط.' },
+          { year: '٢٠١٩', title: 'عمل حر بدوام كامل', desc: 'الاستقلال. بناء مواقع لعملاء محليين ودوليين.' },
+          { year: '٢٠١٨', title: 'مسيرة في التقنية', desc: 'التحول لتطوير الويب. ووردبريس، PHP، جافاسكريبت.' },
+        ].map((item, i) => (
+          <div class="relative pl-10 pb-10 border-l border-border">
+            <div class={`absolute left-0 top-1 w-3 h-3 -translate-x-1/2 rounded-full ${i === 0 ? 'bg-accent' : 'bg-surfaceHover'}`}></div>
+            <span class="text-accent text-sm font-mono font-medium">{item.year}</span>
+            <h3 class="text-lg font-bold text-text mt-1 mb-1">{item.title}</h3>
+            <p class="text-secondary text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="mb-20 reveal">
+      <h2 class="text-2xl font-bold text-text mb-10" dir="rtl">بالأرقام</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+        {[
+          { value: '+٨', label: 'سنوات بناء' },
+          { value: '+٨', label: 'منتجات مشحونة' },
+          { value: '+٣', label: 'منتجات نشطة' },
+          { value: 'القاهرة', label: 'مبني في مصر' },
+        ].map(stat => (
+          <div class="p-6 rounded-xl border border-border bg-surface">
+            <div class="text-2xl font-bold text-accent">{stat.value}</div>
+            <div class="text-sm text-secondary mt-1">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="reveal">
+      <h2 class="text-2xl font-bold text-text mb-10" dir="rtl">المهارات</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="rounded-xl border border-border bg-surface p-6">
+          <h3 class="text-lg font-bold text-accent mb-4">تقني</h3>
+          <ul class="space-y-2.5">
+            {['Laravel & PHP', 'Vue.js & React', 'Astro & TypeScript', 'WordPress & WooCommerce', 'REST APIs & GraphQL'].map(s => (
+              <li class="text-secondary text-sm flex items-start"><span class="text-accent mr-2 mt-0.5">→</span>{s}</li>
+            ))}
+          </ul>
+        </div>
+        <div class="rounded-xl border border-border bg-surface p-6">
+          <h3 class="text-lg font-bold text-accent mb-4">منتج</h3>
+          <ul class="space-y-2.5">
+            {['تصميم أنظمة', 'إعادة تصميم عمليات', 'استشارات تقنية', 'تفكير منتجات', 'وضوح المسار'].map(s => (
+              <li class="text-secondary text-sm flex items-start"><span class="text-accent mr-2 mt-0.5">→</span>{s}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  </article>
+</Base>

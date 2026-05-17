@@ -1,0 +1,158 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero';
+import WorkSection from '../components/Work';
+import Philosophy from '../components/Philosophy';
+import Contact from '../components/Contact';
+import services from '../content/services.json';
+import { getCollection } from 'astro:content';
+import briefData from '../data/news/today.json';
+
+const allPosts = await getCollection('blog');
+const latestPosts = allPosts
+  .filter(p => !p.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+const brief = briefData;
+
+function formatDate(date: Date) {
+  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+}
+---
+
+<Base title="Samir George">
+  <!-- Hero -->
+  <Hero client:load />
+
+  <div class="section-divider"></div>
+
+  <!-- Client Trust Bar -->
+  <section class="py-8 px-6">
+    <div class="max-w-6xl mx-auto bg-surface border border-border rounded-lg px-6 py-4 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 reveal">
+      <span class="text-xs text-secondary uppercase tracking-widest">Trusted by</span>
+      <span class="text-sm text-secondary">Adl Al Oula · Baharzaf · TopBaseNote · 20+ stores across KSA, UAE, Egypt</span>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Method -->
+  <section class="py-24 section-padding reveal">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex items-center gap-3 mb-10">
+        <span class="text-accent font-mono text-sm">01</span>
+        <div class="h-px w-12 bg-accent/30"></div>
+        <span class="text-sm text-secondary uppercase tracking-widest">Method</span>
+      </div>
+      <div class="grid sm:grid-cols-3 gap-6">
+        <div class="bg-surface border border-border rounded-lg p-6 hover:border-accent/20 hover:bg-surfaceHover transition-all">
+          <span class="text-accent font-mono text-sm">01</span>
+          <h3 class="mt-3 text-lg font-semibold text-text">Listen</h3>
+          <p class="mt-2 text-sm text-secondary leading-relaxed">Understand the chaos before prescribing structure. Every system starts with understanding how things actually work.</p>
+        </div>
+        <div class="bg-surface border border-border rounded-lg p-6 hover:border-accent/20 hover:bg-surfaceHover transition-all">
+          <span class="text-accent font-mono text-sm">02</span>
+          <h3 class="mt-3 text-lg font-semibold text-text">Structure</h3>
+          <p class="mt-2 text-sm text-secondary leading-relaxed">Map processes, identify bottlenecks, design systems that fit the people using them. No theoretical frameworks — just what works.</p>
+        </div>
+        <div class="bg-surface border border-border rounded-lg p-6 hover:border-accent/20 hover:bg-surfaceHover transition-all">
+          <span class="text-accent font-mono text-sm">03</span>
+          <h3 class="mt-3 text-lg font-semibold text-text">Build</h3>
+          <p class="mt-2 text-sm text-secondary leading-relaxed">Ship fast, iterate faster. Every build includes a feedback loop. The first version is never the last, but it needs to work.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Featured Work (React with Framer Motion) -->
+  <WorkSection client:load />
+
+  <div class="section-divider"></div>
+
+  <!-- Signal Preview -->
+  <section class="py-24 section-padding reveal">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-accent font-mono text-sm">📡</span>
+        <div class="h-px w-12 bg-accent/30"></div>
+        <span class="text-sm text-secondary uppercase tracking-widest">Signal</span>
+      </div>
+      <div class="flex items-end justify-between mb-10">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-text">Today's brief<span class="text-accent">.</span></h2>
+          <p class="mt-2 text-secondary">{brief.headline_en}</p>
+        </div>
+        <a href="/signal" class="hidden sm:inline-flex items-center gap-1 text-sm text-accent hover:underline">
+          Read full brief →
+        </a>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-4">
+        {brief.items.slice(0, 3).map((item: any) => (
+          <div class="group bg-surface border border-border rounded-xl p-6 hover:border-accent/20 hover:bg-surfaceHover transition-all">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-xs font-medium px-2 py-1 rounded bg-accent/10 text-accent">{item.category}</span>
+              {item.source && <span class="text-xs text-secondary">{item.source}</span>}
+            </div>
+            <h3 class="text-text font-semibold text-sm leading-snug group-hover:text-accent transition-colors">{item.title_en}</h3>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-6 text-center sm:hidden">
+        <a href="/signal" class="text-sm text-accent hover:underline">Read full brief →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Philosophy (React with Framer Motion) -->
+  <Philosophy client:load />
+
+  <div class="section-divider"></div>
+
+  <!-- Writing Preview -->
+  <section class="py-24 section-padding bg-surface/50 reveal">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-sm font-medium text-secondary uppercase tracking-widest mb-8">Writing</h2>
+      <div class="space-y-1">
+        {latestPosts.map((post) => (
+          <a href={`/writing/${post.id}/`} class="group hover:bg-surfaceHover rounded-lg p-4 -mx-4 transition-all cursor-pointer block">
+            <div class="flex items-center justify-between gap-4">
+              <span class="text-text group-hover:text-accent transition-colors">{post.data.title}</span>
+              <span class="text-sm text-secondary shrink-0">{formatDate(post.data.pubDate)}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+      <a href="/writing" class="inline-block mt-4 text-sm text-secondary hover:text-text transition-colors">Read more →</a>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Bottom CTA -->
+  <section class="py-24 section-padding reveal">
+    <div class="max-w-6xl mx-auto">
+      <div class="bg-surface rounded-xl border border-border p-8 sm:p-12">
+        <div class="max-w-prose">
+          <h2 class="text-2xl font-semibold tracking-tight text-text">Not sure if you need custom software?</h2>
+          <p class="mt-4 text-secondary leading-relaxed">
+            I'll give you an honest answer — whether that means building something, recommending an existing tool, or fixing what you have.
+          </p>
+          <div class="mt-8 flex flex-wrap items-center gap-4">
+            <a href="/build-vs-buy" class="bg-accent text-bg px-5 py-2.5 rounded-lg font-medium hover:bg-accentHover transition-colors">Read the guide →</a>
+            <a href="/contact" class="border border-border px-5 py-2.5 rounded-lg text-text hover:border-accent/20 hover:bg-surface transition-all">Tell me about your problem →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <Contact client:load />
+</Base>

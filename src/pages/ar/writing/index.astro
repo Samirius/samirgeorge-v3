@@ -1,0 +1,22 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+const allPosts = await getCollection('blog');
+const posts = allPosts.filter(p => !p.data.draft).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<Base title="كتابات" lang="ar">
+  <div class="max-w-section mx-auto px-6 py-16">
+    <h1 class="text-3xl md:text-4xl font-bold text-text mb-4" dir="rtl">كتابات<span class="text-accent">.</span></h1>
+    <p class="text-secondary mb-12" dir="rtl">دروس من الميدان. مش نظريات — تجارب حقيقية.</p>
+    <div class="space-y-1">
+      {posts.map((post) => (
+        <a href={`/writing/${post.id}/`} class="group hover:bg-surfaceHover rounded-lg p-4 -mx-4 transition-all cursor-pointer block">
+          <div class="flex items-center justify-between gap-4">
+            <span class="text-text group-hover:text-accent transition-colors">{post.data.title}</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</Base>

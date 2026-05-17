@@ -1,0 +1,38 @@
+[
+  {
+    "id": "product-build",
+    "title": "Product Build",
+    "duration": "4-12 weeks",
+    "description": "From concept to shipped product. Custom platforms, tools — built for MENA users. Arabic-first, built to scale.",
+    "detail": "I work with you from discovery through launch. You get a working product, not a prototype.",
+    "startingPrice": "From $2,000",
+    "icon": "building"
+  },
+  {
+    "id": "fix-whats-broken",
+    "title": "Fix What's Broken",
+    "duration": "1-4 weeks",
+    "description": "Audit existing systems, find bottlenecks, fix what's costing you time and money. Targeted repairs.",
+    "detail": "You already have something running. It just doesn't work right. I come in and fix the specific things that are broken.",
+    "startingPrice": "From $500",
+    "icon": "wrench"
+  },
+  {
+    "id": "technical-partnership",
+    "title": "Technical Partnership",
+    "duration": "Ongoing",
+    "description": "Embedded technical support. I work with your team as your go-to builder — someone who understands your business.",
+    "detail": "For businesses that need ongoing technical capacity but aren't ready for a full-time hire.",
+    "startingPrice": "From $500/mo",
+    "icon": "handshake"
+  },
+  {
+    "id": "ecommerce-systems",
+    "title": "E-Commerce Systems",
+    "duration": "2-8 weeks",
+    "description": "20+ stores built across KSA, UAE, Egypt. WooCommerce, custom platforms, Arabic-first UX, regional payments.",
+    "detail": "Built for the local market, not just translated. Each store tailored to the region.",
+    "startingPrice": "From $1,000",
+    "icon": "cart"
+  }
+]

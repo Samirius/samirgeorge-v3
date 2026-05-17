@@ -1,0 +1,44 @@
+---
+import Base from '../../../layouts/Base.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+
+const archiveDir = path.join(process.cwd(), 'src/data/news/archive');
+const files = fs.readdirSync(archiveDir).filter(f => f.endsWith('.json'));
+
+const dates = files.map(f => {
+  const date = f.replace('.json', '');
+  const d = new Date(date + 'T00:00:00');
+  return {
+    date,
+    formatted: d.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }),
+  };
+}).sort((a, b) => b.date.localeCompare(a.date));
+---
+
+<Base title="Signal Archive" description="Archive of daily AI-curated news briefs.">
+  <article class="max-w-section mx-auto px-6 py-16">
+    <header class="mb-16 reveal">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-2xl">📡</span>
+        <h1 class="text-4xl font-bold tracking-tight">Signal Archive</h1>
+      </div>
+      <p class="text-secondary mt-4">Previous daily briefs. Every morning, only what matters.</p>
+    </header>
+
+    <section class="space-y-3 reveal">
+      {dates.map((d) => (
+        <a href={`/signal/archive/${d.date}/`} class="group block bg-surface hover:bg-surfaceHover rounded-lg p-5 border border-border hover:border-accent/20 transition-all">
+          <div class="flex items-center justify-between">
+            <span class="text-text font-medium group-hover:text-accent transition-colors">{d.formatted}</span>
+            <span class="text-sm text-accent">Read →</span>
+          </div>
+        </a>
+      ))}
+    </section>
+
+    <div class="mt-12">
+      <a href="/signal" class="text-sm text-secondary hover:text-accent transition-colors">← Back to today's brief</a>
+    </div>
+  </article>
+</Base>

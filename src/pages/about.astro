@@ -1,0 +1,100 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="About" description="About Samir George — Technical Product Builder based in Cairo, Egypt.">
+  <article class="max-w-section mx-auto px-6 py-16">
+    <header class="mb-20 reveal">
+      <div class="flex items-center gap-5 mb-8">
+        <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-accent to-accentHover flex items-center justify-center text-bg font-bold text-2xl shrink-0">SG</div>
+        <div>
+          <h1 class="text-4xl sm:text-5xl font-bold text-text">About</h1>
+          <p class="text-accent font-medium mt-1">Technical Product Builder</p>
+        </div>
+      </div>
+      <p class="text-xl text-secondary leading-relaxed max-w-2xl">
+        Samir George — I help founders and businesses turn complex problems into clear, built solutions. I understand the system first, then build what actually needs to exist.
+      </p>
+    </header>
+
+    <!-- Story -->
+    <section class="mb-20 reveal">
+      <h2 class="text-2xl font-bold text-text mb-6">The Shift</h2>
+      <div class="space-y-4 text-secondary leading-relaxed max-w-2xl">
+        <p>I spent 6 years building WordPress sites before I realized something uncomfortable.</p>
+        <p class="text-text font-semibold">The code wasn't the problem. The system underneath was.</p>
+        <p>So I started shifting. From "build what's asked" to "understand what's needed." From task-taker to system-thinker. From developer to Technical Product Builder.</p>
+        <blockquote class="border-l-2 border-accent pl-4 py-2 my-6">
+          <p class="text-text italic">I forge clarity from chaos. That's not a tagline — it's how I work.</p>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="mb-20 reveal">
+      <h2 class="text-2xl font-bold text-text mb-10">Background</h2>
+      <div class="space-y-0 max-w-2xl">
+        {[
+          { year: '2026', title: 'Technical Product Builder', desc: 'Building myHR, Sanadi, Akila, Sabbk سبك. Forging tools for Arab builders.' },
+          { year: '2025', title: 'Technical Product Builder @ Andersen Egypt', desc: 'Leading WordPress and WooCommerce projects for enterprise clients. Systems, automation, delivery.' },
+          { year: '2024', title: 'Community Building', desc: 'Grew Freelancers Egypt to 9,600+ members. Built in public. Shared tools with Arab builders.' },
+          { year: '2020', title: 'Systems & Products', desc: 'Built 20+ e-commerce sites and systems for clients across MENA.' },
+          { year: '2019', title: 'Full-time Freelancing', desc: 'Went independent. Built websites for local and international clients.' },
+          { year: '2018', title: 'Career in Tech', desc: 'Transitioned to web development. WordPress, PHP, JavaScript.' },
+        ].map((item, i) => (
+          <div class={`relative pl-10 pb-10 border-l border-border ${i === 0 ? '' : ''}`}>
+            <div class={`absolute left-0 top-1 w-3 h-3 -translate-x-1/2 rounded-full ${i === 0 ? 'bg-accent' : 'bg-surfaceHover'}`}></div>
+            <span class="text-accent text-sm font-mono font-medium">{item.year}</span>
+            <h3 class="text-lg font-bold text-text mt-1 mb-1">{item.title}</h3>
+            <p class="text-secondary text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="mb-20 reveal">
+      <h2 class="text-2xl font-bold text-text mb-10">By the Numbers</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+        {[
+          { value: '8+', label: 'Years building' },
+          { value: '8+', label: 'Products shipped' },
+          { value: '3+', label: 'Active products' },
+          { value: 'Cairo', label: 'Based in Egypt' },
+        ].map(stat => (
+          <div class="p-6 rounded-xl border border-border bg-surface">
+            <div class="text-2xl font-bold text-accent">{stat.value}</div>
+            <div class="text-sm text-secondary mt-1">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="reveal">
+      <h2 class="text-2xl font-bold text-text mb-10">Skills</h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="rounded-xl border border-border bg-surface p-6">
+          <h3 class="text-lg font-bold text-accent mb-4">Technical</h3>
+          <ul class="space-y-2.5">
+            {['Laravel & PHP', 'Vue.js & React', 'Astro & TypeScript', 'WordPress & WooCommerce', 'REST APIs & GraphQL'].map(s => (
+              <li class="text-secondary text-sm flex items-start">
+                <span class="text-accent mr-2 mt-0.5">→</span>{s}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="rounded-xl border border-border bg-surface p-6">
+          <h3 class="text-lg font-bold text-accent mb-4">Product</h3>
+          <ul class="space-y-2.5">
+            {['Systems Design', 'Process Redesign', 'Technical Consulting', 'Product Thinking', 'Workflow Clarity'].map(s => (
+              <li class="text-secondary text-sm flex items-start">
+                <span class="text-accent mr-2 mt-0.5">→</span>{s}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  </article>
+</Base>

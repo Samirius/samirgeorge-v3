@@ -1,0 +1,85 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+
+export async function getStaticPaths() {
+  const archiveDir = path.join(process.cwd(), 'src/data/news/archive');
+  const files = fs.readdirSync(archiveDir).filter(f => f.endsWith('.json'));
+
+  const paths = [];
+  for (const f of files) {
+    const date = f.replace('.json', '');
+    const raw = fs.readFileSync(path.join(archiveDir, f), 'utf-8');
+    const brief = JSON.parse(raw);
+    brief.items.forEach((item: any, i: number) => {
+      paths.push({
+        params: { date, story: String(i + 1) },
+        props: { item, date, formatted: brief.dateFormatted_en, brief },
+      });
+    });
+  }
+  return paths;
+}
+
+const { item, date, formatted, brief } = Astro.props;
+---
+
+<Base title={item.title_en} description={item.summary_en} article={true} pubDate={new Date(date)}>
+  <article class="max-w-section mx-auto px-6 py-16">
+    <header class="mb-12 reveal">
+      <div class="flex items-center gap-2 text-sm text-secondary mb-4">
+        <a href={`/signal/archive/${date}/`} class="hover:text-accent transition-colors">{formatted}</a>
+        <span>/</span>
+        <span>Story #{Number(Astro.params.story)}</span>
+      </div>
+
+      <div class="flex items-center gap-3 mb-4">
+        <span class="text-xs font-medium px-2 py-1 rounded bg-accent/10 text-accent">{item.category}</span>
+        {item.source && <span class="text-xs text-secondary">{item.source}</span>}
+      </div>
+
+      <h1 class="text-3xl md:text-4xl font-bold tracking-tight text-text leading-tight">{item.title_en}</h1>
+      {item.title_ar && <p class="mt-3 text-lg text-secondary" dir="rtl">{item.title_ar}</p>}
+    </header>
+
+    <section class="prose prose-invert max-w-prose reveal">
+      {(item.content_en || item.summary_en)?.split('\n\n').map((p: string) => (
+        typeof p === 'string' && p.trim() ? <p class="text-secondary leading-relaxed">{p}</p> : null
+      ))}
+
+      {item.analysis_en && (
+        <div class="mt-12 p-6 bg-surface rounded-xl border border-border not-prose">
+          <h3 class="text-sm font-medium text-accent uppercase tracking-wider mb-3">Analysis</h3>
+          <p class="text-secondary leading-relaxed">{item.analysis_en}</p>
+        </div>
+      )}
+
+      {item.faqs && item.faqs.length > 0 && (
+        <div class="mt-12 not-prose">
+          <h3 class="text-lg font-semibold text-text mb-6">FAQ</h3>
+          <div class="space-y-4">
+            {item.faqs.map((faq: any) => (
+              <details class="group bg-surface rounded-lg border border-border">
+                <summary class="px-6 py-4 cursor-pointer text-text font-medium hover:text-accent transition-colors">{faq.q_en}</summary>
+                <div class="px-6 pb-4 text-secondary text-sm leading-relaxed">{faq.a_en}</div>
+              </details>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {item.url && (
+        <div class="mt-12 not-prose">
+          <a href={item.url} target="_blank" rel="noopener noreferrer" class="text-accent hover:underline text-sm">
+            Read original source →
+          </a>
+        </div>
+      )}
+    </section>
+
+    <div class="mt-16 not-prose">
+      <a href={`/signal/archive/${date}/`} class="text-sm text-secondary hover:text-accent transition-colors">← Back to {formatted}</a>
+    </div>
+  </article>
+</Base>

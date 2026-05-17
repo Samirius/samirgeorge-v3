@@ -1,0 +1,109 @@
+{
+  "date": "2026-05-15",
+  "dateFormatted_en": "Thursday, May 15, 2026",
+  "dateFormatted_ar": "الخميس، ١٥ مايو ٢٠٢٦",
+  "headline_en": "GLM-5.1 matches Claude Opus 4.6 in coding — open-weight models close the gap",
+  "headline_ar": "GLM-5.1 يوازي Claude Opus 4.6 في البرمجة — نماذج المصادر المفتوحة تقلص الفجوة",
+  "items": [
+    {
+      "title_en": "Zhipu AI's GLM-5.1 scores 58.4 on SWE-Bench Pro, surpassing GPT-5.4",
+      "title_ar": "نموذج GLM-5.1 من Zhipu AI يسجل 58.4 في اختبار SWE-Bench Pro، متجاوزاً GPT-5.4",
+      "summary_en": "Zhipu AI's latest flagship model demonstrates 8-hour autonomous coding capability and beats both GPT-5.4 and Claude Opus 4.6 on the SWE-Bench Pro benchmark.",
+      "summary_ar": "أحدث نموذج رئيسي من Zhipu AI يُظهر قدرة برمجة ذاتية لمدة 8 ساعات ويتفوق على GPT-5.4 وClaude Opus 4.6 في معيار SWE-Bench Pro.",
+      "content_en": "Zhipu AI has released GLM-5.1, its latest flagship language model, which has achieved a groundbreaking score of 58.4 on the SWE-Bench Pro benchmark — surpassing both OpenAI's GPT-5.4 and Anthropic's Claude Opus 4.6. This marks a significant milestone for open-weight models in coding competency.\n\nThe model is specifically designed for agentic coding workflows, with the ability to work autonomously for up to 8 hours on complex engineering tasks. It demonstrated this by autonomously performing 655 iterations to optimize a vector database, achieving a 6.9x throughput improvement over the initial version.\n\nGLM-5.1 features a 200K context window with 128K max output tokens, making it suitable for large-scale code generation and analysis. The model supports function calling, structured output, and MCP (Model Context Protocol) integration. It's available through Zhipu AI's coding plan API.\n\nThis development signals that the gap between proprietary and open-weight models is rapidly closing, particularly in coding tasks. For developers in the MENA region, GLM-5.1 offers a cost-effective alternative to Western models without compromising on quality.",
+      "content_ar": "أصدرت Zhipu AI نموذج GLM-5.1، أحدث نموذج لغوي رئيسي، والذي حقق درجة رائدة بلغت 58.4 في اختبار SWE-Bench Pro — متجاوزاً كلاً من GPT-5.4 من OpenAI وClaude Opus 4.6 من Anthropic. يمثل هذا إنجازاً كبيراً لنماذج الأوزان المفتوحة في مجال البرمجة.\n\nصُمم النموذج خصيصاً لسير العمل البرمجي الذاتي، مع القدرة على العمل بشكل مستقل لمدة تصل إلى 8 ساعات في مهام هندسية معقدة. أظهر ذلك من خلال تنفيذ 655 تكراراً ذاتياً لتحسين قاعدة بيانات متجهة، محققاً تحسناً بنسبة 6.9 أضعاف في الإنتاجية.\n\nيتميز GLM-5.1 بنافذة سياق بحجم 200K مع أقصى إخراج 128K رمز، مما يجعله مناسباً لتوليد وتحليل الشفرات البرمجية واسعة النطاق.",
+      "analysis_en": "GLM-5.1's performance is a clear signal that the AI coding model landscape is becoming more competitive. Open-weight models are no longer just \"good enough\" alternatives — they're matching or beating the best proprietary models. This has significant implications for cost-conscious developers and businesses, especially in emerging markets where access to expensive API subscriptions can be a barrier. The 8-hour autonomous work capability also raises the bar for what coding agents can achieve without human intervention.",
+      "category": "AI",
+      "source": "Zhipu AI",
+      "url": "https://bigmodel.cn/dev/howuse/glm-5.1",
+      "faqs": [
+        {
+          "q_en": "What is SWE-Bench Pro and why does the score matter?",
+          "a_en": "SWE-Bench Pro is a benchmark that tests AI models on real-world software engineering tasks — fixing bugs, implementing features, and refactoring code in actual open-source projects. A higher score means the model can handle more complex, real development work autonomously.",
+          "q_ar": "ما هو SWE-Bench Pro ولماذا تهم النتيجة؟",
+          "a_ar": "SWE-Bench Pro هو اختبار يقيس أداء نماذج الذكاء الاصطناعي في مهام هندسة برمجيات حقيقية — إصلاح الأخطاء، تنفيذ الميزات، وإعادة هيكلة الشفرات في مشاريع مفتوحة المصدر. نتيجة أعلى تعني أن النموذج يمكنه التعامل مع عمل تطويري أكثر تعقيداً بشكل مستقل."
+        },
+        {
+          "q_en": "Is GLM-5.1 free to use?",
+          "a_en": "GLM-5.1 is available through Zhipu AI's coding plan API. Some tiers offer free access with rate limits. Check the Zhipu AI platform for current pricing and availability.",
+          "q_ar": "هل GLM-5.1 مجاني للاستخدام؟",
+          "a_ar": "GLM-5.1 متاح عبر خطة البرمجة من Zhipu AI. بعض المستويات تقدم وصولاً مجانياً مع حدود استخدام. راجع منصة Zhipu AI للأسعار والتوافر الحالي."
+        }
+      ]
+    },
+    {
+      "title_en": "Saudi Arabia's non-oil economy grows 4.7% in Q1 2026",
+      "title_ar": "اقتصاد المملكة العربية السعودية غير النفطي ينمو 4.7% في الربع الأول من 2026",
+      "summary_en": "Saudi Arabia's Vision 2030 diversification efforts show results as non-oil GDP growth accelerates. E-commerce and digital services lead at 12.3% year-over-year.",
+      "summary_ar": "تُظهر جهود التنويع في رؤية 2030 نتائجها مع تسارع نمو الناتج المحلي غير النفطي. يقود قطاع التجارة الإلكترونية والخدمات الرقمية بنسبة 12.3%.",
+      "content_en": "Saudi Arabia's non-oil GDP grew by 4.7% in the first quarter of 2026, according to data released by the General Authority for Statistics (GASTAT). This marks a significant acceleration from the 3.2% growth recorded in the same period last year.\n\nThe e-commerce and digital services sectors were the standout performers, growing at 12.3% year-over-year. This growth is driven by increased internet penetration, government digitalization initiatives, and a young, tech-savvy population. The retail sector also showed strong performance, particularly in fashion, electronics, and food delivery.\n\nThis data reinforces the effectiveness of Vision 2030's economic diversification strategy. For businesses operating in the Saudi market — especially in e-commerce and tech — the growth trajectory presents significant opportunities for expansion and investment.",
+      "content_ar": "نما الناتج المحلي السعودي غير النفطي بنسبة 4.7% في الربع الأول من 2026، وفقاً لبيانات الهيئة العامة للإحصاء. يمثل هذا تسارعاً ملحوظاً من نمو 3.2% في نفس الفترة من العام الماضي.\n\nتصدر قطاع التجارة الإلكترونية والخدمات الرقمية الأداء بنمو 12.3% على أساس سنوي. يقود هذا النمو زيادة انتشار الإنترنت ومبادرات الحكومة الرقمية وشباب ملموس بالتكنولوجيا.",
+      "category": "Business",
+      "source": "GASTAT",
+      "faqs": [
+        {
+          "q_en": "What does non-oil GDP growth mean for Saudi Arabia?",
+          "a_en": "Non-oil GDP growth measures economic output from all sectors except oil extraction. It's a key indicator of Saudi Arabia's success in diversifying its economy away from oil dependence under Vision 2030.",
+          "q_ar": "ماذا يعني نمو الناتج المحلي غير النفطي للسعودية؟",
+          "a_ar": "يقيس نمو الناتج المحلي غير النفطي الإنتاج الاقتصادي من جميع القطاعات باستثناء استخراج النفط. وهو مؤشر رئيسي على نجاح السعودية في تنويع اقتصادها بعيداً عن الاعتماد على النفط ضمن رؤية 2030."
+        }
+      ]
+    },
+    {
+      "title_en": "Egypt's central bank holds interest rates steady at 27.25%",
+      "title_ar": "البنك المركزي المصري يثبّت أسعار الفائدة عند 27.25%",
+      "summary_en": "The CBE maintained its overnight deposit rate as inflation eased to 25.3% in April, down from 33% peak in 2024. EGP stable around 50.5 against USD.",
+      "summary_ar": "حافظ البنك المركزي على سعر الإيداع الليلي مع تراجع التضخم إلى 25.3% في أبريل، مقارنة بذروة 33% في 2024.",
+      "content_en": "The Central Bank of Egypt (CBE) decided to keep its key interest rate unchanged at 27.25% during its May monetary policy meeting. The decision comes as inflation continues its downward trajectory, reaching 25.3% in April 2026 — a significant improvement from the peak of 33% recorded in mid-2024.\n\nThe Egyptian pound has remained relatively stable around 50.5 against the US dollar, reflecting improved foreign exchange conditions following the Ras El-Hekma deal and increased remittances. However, the CBE noted that core inflation remains elevated, and further rate cuts will depend on sustained improvement in price stability.\n\nFor businesses and consumers, the hold decision means borrowing costs remain high but are expected to gradually decrease over the coming quarters if inflation continues its decline.",
+      "content_ar": "قرر البنك المركزي المصري الإبقاء على سعر الفائدة الرئيسي دون تغيير عند 27.25% خلال اجتماع السياسة النقدية في مايو. جاء القرار مع استمرار مسار التضخم التنازلي، حيث بلغ 25.3% في أبريل 2026 — تحسن ملحوظ عن ذروة 33% في منتصف 2024.\n\nظل الجنيه المصري مستقراً نسبياً حول 50.5 مقابل الدولار الأمريكي، مما يعكس تحسن ظروف النقد الأجنبي.",
+      "category": "Economy",
+      "source": "CBE",
+      "faqs": [
+        {
+          "q_en": "Why is the CBE keeping rates so high if inflation is falling?",
+          "a_en": "Central banks typically keep rates elevated until they're confident inflation is sustainably heading toward their target (usually around 5-9% for emerging markets). Premature cuts risk reigniting inflation. The CBE is being cautious to ensure the downward trend is permanent.",
+          "q_ar": "لماذا يبقي البنك المركزي الفائدة مرتفعة رغم تراجع التضخم؟",
+          "a_ar": "تحافظ البنوك المركزية عادةً على أسعار فائدة مرتفعة حتى تثق أن التضخم يتجه بشكل مستدام نحو هدفها. التخفيض المبكر يخاطر بإعادة إشعال التضخم. البنك المركزي يتوخى الحذر لضمان أن الاتجاه التنازلي دائم."
+        }
+      ]
+    },
+    {
+      "title_en": "WordPress 6.8.2 security release patches critical XSS vulnerability",
+      "title_ar": "إصدار أمان WordPress 6.8.2 يعالج ثغرة XSS حرجة",
+      "summary_en": "WordPress released an emergency security update addressing a stored XSS vulnerability in the block editor affecting versions 6.5+.",
+      "summary_ar": "أصدر WordPress تحديث أمان طارئ يعالج ثغرة XSS مخزنة في محرر الكتل تؤثر على الإصدارات 6.5 فما فوق.",
+      "content_en": "WordPress has released version 6.8.2, an emergency security update that patches a critical stored cross-site scripting (XSS) vulnerability in the block editor. The vulnerability affects all WordPress installations running version 6.5 or later.\n\nThe flaw could allow authenticated users with contributor-level access or above to inject malicious JavaScript into posts, which would then execute when viewed by administrators or other users. This type of vulnerability is particularly dangerous in multi-author blogs and enterprise WordPress installations.\n\nSite administrators are strongly recommended to update immediately. The update also includes several other security hardening improvements and bug fixes. Automatic updates should handle this for most installations, but manual verification is recommended for mission-critical sites.",
+      "content_ar": "أصدر WordPress الإصدار 6.8.2، تحديث أمان طارئ يعالج ثغرة حرجة في البرمجة عبر المواقع (XSS) المخزنة في محرر الكتل. الثغرة تؤثر على جميع تثبيتات WordPress التي تعمل بالإصدار 6.5 أو أحدث.\n\nيمكن للثغرة أن تسمح للمستخدمين المعتمدين بمستوى مساهم أو أعلى بحقن شفرات JavaScript خبيثة في المنشورات.",
+      "category": "Security",
+      "source": "WordPress.org",
+      "faqs": [
+        {
+          "q_en": "How do I check if my WordPress site is affected?",
+          "a_en": "Go to your WordPress admin dashboard → Updates. If you see WordPress 6.8.2 available, your site needs updating. If it says you're running the latest version, you're already patched.",
+          "q_ar": "كيف أتحقق مما إذا كان موقع WordPress الخاص بي متأثراً؟",
+          "a_ar": "اذهب إلى لوحة تحكم WordPress → تحديثات. إذا ظهر WordPress 6.8.2 متاحاً، موقعك يحتاج تحديث. إذا ظهر أنك تعمل بأحدث إصدار، فأنت محمي بالفعل."
+        }
+      ]
+    },
+    {
+      "title_en": "OpenAI launches Codex CLI for terminal-based coding agents",
+      "title_ar": "OpenAI تطلق Codex CLI لوكلاء البرمجة عبر سطر الأوامر",
+      "summary_en": "The new open-source tool lets developers run AI coding agents directly in the terminal, supporting multi-file editing and test execution.",
+      "summary_ar": "الأداة مفتوحة المصدر الجديدة تتيح للمطورين تشغيل وكلاء برمجة بالذكاء الاصطناعي مباشرة في الطرفية.",
+      "content_en": "OpenAI has released Codex CLI, an open-source command-line tool that enables developers to run AI-powered coding agents directly from the terminal. The tool competes with existing solutions like Claude Code and Cursor, but offers a lightweight, terminal-native experience.\n\nKey features include multi-file editing capabilities, automatic test execution after code changes, git integration for creating commits and pull requests, and support for multiple AI models. The tool is built on the Agent Client Protocol (ACP) standard, making it compatible with various AI backends.\n\nFor developers who prefer terminal-based workflows, Codex CLI offers a compelling alternative to GUI-heavy IDE integrations. The open-source nature also means it can be extended and customized for specific development workflows.",
+      "content_ar": "أصدرت OpenAI أداة Codex CLI، أداة سطر أوامر مفتوحة المصدر تمكن المطورين من تشغيل وكلاء برمجة مدعومين بالذكاء الاصطناعي مباشرة من الطرفية. تنافس الأداة الحلول الموجودة مثل Claude Code وCursor.",
+      "category": "Dev Tools",
+      "source": "OpenAI",
+      "faqs": [
+        {
+          "q_en": "How does Codex CLI compare to Claude Code?",
+          "a_en": "Codex CLI is open-source and terminal-native, while Claude Code is Anthropic's proprietary tool. Both support multi-file editing and test execution. Codex CLI supports multiple AI backends via ACP, while Claude Code is tied to Anthropic's models. Choice depends on your preferred AI model and workflow.",
+          "q_ar": "كيف يقارن Codex CLI بـ Claude Code؟",
+          "a_ar": "Codex CLI مفتوح المصدر وأصلي للطرفية، بينما Claude Code هو أداة خاصة بـ Anthropic. كلاهما يدعم تحرير الملفات المتعددة وتنفيذ الاختبارات. الاختيار يعتمد على نموذج الذكاء الاصطناعي المفضل وسير عملك."
+        }
+      ]
+    }
+  ],
+  "aiSummary_en": "AI models continue their rapid evolution — GLM-5.1 now matches top Western models in coding. Saudi Arabia's non-oil economy shows strong diversification gains. Egypt's inflation continues its downward trend while rates stay high. A critical WordPress security patch needs immediate attention. And the developer tooling space heats up with OpenAI's terminal-based coding agent.",
+  "aiSummary_ar": "نماذج الذكاء الاصطناعي تواصل تطورها السريع — GLM-5.1 يوازي الآن أفضل النماذج الغربية في البرمجة. اقتصاد السعودية غير النفطي يُظهر مكاسب تنويع قوية. التضخم في مصر يواصل اتجاهه التنازلي بينما تبقى الفائدة مرتفعة."
+}

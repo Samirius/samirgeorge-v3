@@ -1,0 +1,65 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+
+export interface NewsItem {
+  title_en: string;
+  title_ar: string;
+  summary_en: string;
+  summary_ar: string;
+  category: string;
+  source?: string;
+}
+
+export interface DailyBrief {
+  date: string;
+  dateFormatted_en: string;
+  headline_en: string;
+  items: NewsItem[];
+  aiSummary_en: string;
+}
+
+export async function getStaticPaths() {
+  const archiveDir = path.join(process.cwd(), 'src/data/news/archive');
+  const files = fs.readdirSync(archiveDir).filter(f => f.endsWith('.json'));
+
+  return files.map(f => {
+    const date = f.replace('.json', '');
+    const raw = fs.readFileSync(path.join(archiveDir, f), 'utf-8');
+    const brief: DailyBrief = JSON.parse(raw);
+    return { params: { date }, props: { brief } };
+  });
+}
+
+const { brief } = Astro.props;
+---
+
+<Base title={`Signal — ${brief.dateFormatted_en}`} description={brief.aiSummary_en}>
+  <article class="max-w-section mx-auto px-6 py-16">
+    <header class="mb-16 reveal">
+      <a href="/signal/archive" class="text-sm text-secondary hover:text-accent transition-colors">← Archive</a>
+      <h1 class="text-3xl md:text-4xl font-bold tracking-tight mt-6 text-text">{brief.dateFormatted_en}</h1>
+      {brief.headline_en && <p class="mt-4 text-secondary text-lg">{brief.headline_en}</p>}
+    </header>
+
+    <section class="mb-12 reveal">
+      <div class="bg-surface rounded-xl p-6 border border-border">
+        <p class="text-secondary leading-relaxed">{brief.aiSummary_en}</p>
+      </div>
+    </section>
+
+    <section class="space-y-4 reveal">
+      {brief.items.map((item: NewsItem, i: number) => (
+        <a href={`/signal/archive/${brief.date}/${i + 1}/`} class="group block bg-surface hover:bg-surfaceHover rounded-xl p-6 border border-border hover:border-accent/20 transition-all">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-xs font-medium px-2 py-1 rounded bg-accent/10 text-accent">{item.category}</span>
+            {item.source && <span class="text-xs text-secondary">{item.source}</span>}
+          </div>
+          <h3 class="text-lg font-semibold text-text mb-2 group-hover:text-accent transition-colors">{item.title_en}</h3>
+          <p class="text-secondary text-sm leading-relaxed">{item.summary_en}</p>
+        </a>
+      ))}
+    </section>
+  </article>
+</Base>
